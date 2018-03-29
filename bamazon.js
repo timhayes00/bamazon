@@ -23,12 +23,14 @@ function displayItems(){
         if (err) throw err;
         console.log("================================="); //header
         for (i = 0; i < res.length; i++){
-            console.log("Item ID: " + res[i].item_id);
-            console.log(res[i].product_name);
-            console.log("listed in " + res[i].department_name);
-            console.log("Retail price is $" + res[i].price);
-            console.log("There are " + res[i].stock_quantity + " left in stock.");
-            console.log("================================="); // separation between items and the footer
+                if(res[i].stock_quantity > 0){
+                    console.log("Item ID: " + res[i].item_id);
+                    console.log(res[i].product_name);
+                    console.log("listed in " + res[i].department_name);
+                    console.log("Retail price is $" + res[i].price);
+                    console.log("There are " + res[i].stock_quantity + " left in stock.");
+                    console.log("================================="); // separation between items and the footer
+                }
         }
         purchaseItems();
     })
